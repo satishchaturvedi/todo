@@ -25,9 +25,9 @@ class TodoController extends Telegram.TelegramBaseController {
       });
     }
     checkHandler($){
-      if(!todo) return $.sendMessage('Sorry, check a todo item');
+      //if(!todo) return $.sendMessage('Sorry, check a todo item');
 
-      let index = parseInt($.message.text.split(' ').slice(1)(0));
+      let index = parseInt($.message.text.split(' ').slice(1)[0]);
       if(isNaN(index)) return $.sendMessage('Sorry you didn\'t pass a valid index.');
 
       $.getUserSession('todos').then(todos =>{
